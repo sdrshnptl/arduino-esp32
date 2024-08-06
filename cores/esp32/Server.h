@@ -22,9 +22,14 @@
 
 #include "Print.h"
 
-class Server : public Print {
+class Server: public Print
+{
 public:
-  virtual void begin() = 0;
+    // KH, change to fix compiler error for EthernetWebServer
+    // error: cannot declare field 'EthernetWebServer::_server' to be of abstract type 'EthernetServer'
+    // virtual void begin(uint16_t port=0) =0;
+    //virtual void begin() = 0;
+    void begin() {};
 };
 
 #endif
